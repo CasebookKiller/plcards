@@ -43,29 +43,31 @@ if (import.meta.env.DEV) {
       text_color: '#f5f5f5',
     } as const;
 
+    const LP = {
+      tgWebAppThemeParams: themeParams,
+      tgWebAppData: new URLSearchParams([
+        ['user', JSON.stringify({
+          id: Number(import.meta.env.VITE_MOCK_USER_ID) || 99281932,
+          first_name: 'Ivan',
+          last_name: 'Petrov',
+          username: 'petrov',
+          language_code: 'ru',
+          is_premium: true,
+          allows_write_to_pm: true,
+        })],
+        ['hash', 'wP0hiNsZtrjRu_f8IE9rbgjic-lnFm4MoSBPKhMvOtZgJDqA8SSQN421SsnqxQResAsZaShR4eUuL4WKUAQLCQ'],
+        ['signature', '89d6079ad6762351f38c6dbbc41bb53048019256a9443988af7a48bcad16ba31'],
+        ['auth_date', Date.now().toString()],
+        ['chat_type', 'sender'],
+        ['chat_instance', '8428209589180549439'],
+      ]),
+      tgWebAppStartParam: 'debug',
+      tgWebAppVersion: '8.3',
+      tgWebAppPlatform: 'tdesktop',
+    };
+
     mockTelegramEnv({
-      launchParams: {
-        tgWebAppThemeParams: themeParams,
-        tgWebAppData: new URLSearchParams([
-          ['user', JSON.stringify({
-            id: Number(import.meta.env.VITE_MOCK_USER_ID) || 99281932,
-            first_name: 'Ivan',
-            last_name: 'Petrov',
-            username: 'petrov',
-            language_code: 'ru',
-            is_premium: true,
-            allows_write_to_pm: true,
-          })],
-          ['hash', 'wP0hiNsZtrjRu_f8IE9rbgjic-lnFm4MoSBPKhMvOtZgJDqA8SSQN421SsnqxQResAsZaShR4eUuL4WKUAQLCQ'],
-          ['signature', '89d6079ad6762351f38c6dbbc41bb53048019256a9443988af7a48bcad16ba31'],
-          ['auth_date', Date.now().toString()],
-          ['chat_type', 'sender'],
-          ['chat_instance', '8428209589180549439'],
-        ]),
-        tgWebAppStartParam: 'debug',
-        tgWebAppVersion: '8.3',
-        tgWebAppPlatform: 'tdesktop',
-      },
+      launchParams: LP,
       onEvent(e) {
         if (e[0] === 'web_app_request_theme') {
           return emitEvent('theme_changed', { theme_params: themeParams });

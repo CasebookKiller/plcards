@@ -79,7 +79,7 @@ using (true);
 ```
 
 ```sql
-create policy "paublic can insert ids"
+create policy "public can insert ids"
 on public.ids
 for insert to anon
 using (true)
@@ -122,23 +122,29 @@ with check (true);
 Для работы шаблона достаточно указать в нем ID пользователя, которого вы хотите использовать в приложении,  в переменной `VITE_MOCK_USER_ID` в файле `.env.local`.
 
 ```ts
-  const initDataRaw = new URLSearchParams([
-    ['user', JSON.stringify({
-      id: import.meta.env.VITE_MOCK_USER_ID || 99281932,
-      first_name: 'Ivan',
-      last_name: 'Petrov',
-      username: 'petrov',
-      language_code: 'ru',
-      is_premium: true,
-      allows_write_to_pm: true,
-    })],
-    ['signature', 'wP0hiNsZtrjRu_f8IE9rbgjic-lnFm4MoSBPKhMvOtZgJDqA8SSQN421SsnqxQResAsZaShR4eUuL4WKUAQLCQ'],
-    ['hash', '89d6079ad6762351f38c6dbbc41bb53048019256a9443988af7a48bcad16ba31'],
-    ['auth_date', '1716922846'],
-    ['start_param', 'debug'],
-    ['chat_type', 'sender'],
-    ['chat_instance', '8428209589180549439'],
-  ]).toString();
+    
+  const LP = {
+    tgWebAppThemeParams: themeParams,
+    tgWebAppData: new URLSearchParams([
+      ['user', JSON.stringify({
+        id: Number(import.meta.env.VITE_MOCK_USER_ID) || 99281932,
+        first_name: 'Ivan',
+        last_name: 'Petrov',
+        username: 'petrov',
+        language_code: 'ru',
+        is_premium: true,
+        allows_write_to_pm: true,
+      })],
+      ['hash', 'wP0hiNsZtrjRu_f8IE9rbgjic-lnFm4MoSBPKhMvOtZgJDqA8SSQN421SsnqxQResAsZaShR4eUuL4WKUAQLCQ'],
+      ['signature', '89d6079ad6762351f38c6dbbc41bb53048019256a9443988af7a48bcad16ba31'],
+      ['auth_date', Date.now().toString()],
+      ['chat_type', 'sender'],
+      ['chat_instance', '8428209589180549439'],
+    ]),
+    tgWebAppStartParam: 'debug',
+    tgWebAppVersion: '8.3',
+    tgWebAppPlatform: 'tdesktop',
+  };
 ```
 
 Чтобы запустить приложение в режиме разработки, используйте скрипт `dev`:
@@ -150,12 +156,12 @@ npm run dev
 После этого вы увидите аналогичное сообщение в своем терминале:
 
 ```bash
-VITE v5.2.12  ready in 237 ms
+VITE v6.1.1  ready in 237 ms
 
-➜  Local:   http://localhost:5173/reactjs-template
-➜  Network: http://172.18.16.1:5173/reactjs-template
-➜  Network: http://172.19.32.1:5173/reactjs-template
-➜  Network: http://192.168.0.171:5173/reactjs-template
+➜  Local:   http://localhost:5173/plcards
+➜  Network: http://172.18.16.1:5173/plcards
+➜  Network: http://172.19.32.1:5173/plcards
+➜  Network: http://192.168.0.171:5173/plcards
 ➜  press h + enter to show help
 ```
 
