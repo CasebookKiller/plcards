@@ -161,7 +161,7 @@ VITE v5.2.12  ready in 237 ms
 
 Здесь вы можете увидеть ссылку `Local`, доступную локально, и ссылку `Network`, доступную для всех устройств в той же сети, что и текущее устройство.
 
-Чтобы просмотреть приложение, вам необходимо открыть ссылку `Local` (в данном примере `http://localhost:5173/reactjs-template`) в вашем браузере:
+Чтобы просмотреть приложение, вам необходимо открыть ссылку `Local` (в данном примере `http://localhost:5173/plcards`) в вашем браузере:
 
 ![Приложение](assets/application.png)
 
@@ -182,16 +182,16 @@ VITE v5.2.12  ready in 237 ms
 После раскомментирования функции снова запустите скрипт `dev` и понаблюдайте за выводом в вашем терминале:
 
 ```bash
-VITE v5.2.12  ready in 265 ms
+VITE v6.1.1  ready in 265 ms
 
-➜  Local:   https://localhost:5173/reactjs-template
-➜  Network: https://172.18.16.1:5173/reactjs-template
-➜  Network: https://172.19.32.1:5173/reactjs-template
-➜  Network: https://192.168.0.171:5173/reactjs-template
+➜  Local:   https://localhost:5173/plcards
+➜  Network: https://172.18.16.1:5173/plcards
+➜  Network: https://172.19.32.1:5173/plcards
+➜  Network: https://192.168.0.171:5173/plcards
 ➜  press h + enter to show help
 ```
 
-Перейдя по ссылке `Local` (в данном примере `https://localhost:5173/reactjs-template`) в своем браузере, вы увидите следующее предупреждение:
+Перейдя по ссылке `Local` (в данном примере `https://localhost:5173/plcards`) в своем браузере, вы увидите следующее предупреждение:
 
 ![SSL Warning](assets/ssl-warning.png)
 
@@ -215,14 +215,14 @@ VITE v5.2.12  ready in 265 ms
 
 Перед запуском процесса развертывания убедитесь, что вы выполнили следующие действия:
 
-1. Заменилb значение `homepage` d `package.json`. Инструмент развертывания страниц на GitHub использует это значение для определения соответствующего проекта на GitHub.
+1. Заменили значение `homepage` d `package.json`. Инструмент развертывания страниц на GitHub использует это значение для определения соответствующего проекта на GitHub.
 2. Заменили значение `base` в `vite.config.ts` и присвоил ему имя вашего репозитория на GitHub. Vite будет использовать это значение при создании путей к статическим ресурсам.
 
-Например, если ваше имя пользователя на GitHub - `telegram-mini-apps`, а имя репозитория - `is-awesome`, значение в поле `homepage` должно быть следующим:
+Например, если ваше имя пользователя на GitHub - `casebookkiller`, а имя репозитория - `is-awesome`, значение в поле `homepage` должно быть следующим:
 
 ```json
 {
-  "homepage": "https://telegram-mini-apps.github.io/is-awesome"
+  "homepage": "https://casebookkiller.github.io/is-awesome"
 }
 ```
 
@@ -252,7 +252,7 @@ npm run deploy
 ```
 
 После успешного завершения развертывания перейдите на страницу с данными, указанными в соответствии с вашим именем пользователя и названием хранилища. Вот пример ссылки на страницу с использованием указанных выше данных: 
-https://telegram-mini-apps.github.io/is-awesome
+https://casebookkiller.github.io/is-awesome
 
 ### Рабочий процесс GitHub (Workflow)
 
