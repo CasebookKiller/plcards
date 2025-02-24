@@ -1,4 +1,9 @@
 /**
+ * Токен бота для Telegram Bot API
+ */
+const BOT_TOKEN = import.meta.env.VITE_FEE_TOKEN;//import.meta.env.VITE_BOT_TOKEN;
+
+/**
  * Sends a POST request to the specified Telegram Bot API method with the provided request body.
  *
  * @param {string} method - The Telegram Bot API method to call.
@@ -16,7 +21,7 @@ export function fetchBot(
 ) {
   console.log('method: ', method);
   fetch(
-    `https://api.telegram.org/bot${import.meta.env.VITE_BOT_TOKEN}/` + method, {
+    `https://api.telegram.org/bot${BOT_TOKEN}/` + method, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
@@ -44,7 +49,7 @@ export function fetchBotFormData(
   console.log('method: ', method);
   console.log('request: ', request);
 
-  fetch(`https://api.telegram.org/bot${import.meta.env.VITE_BOT_TOKEN}/${method}`, {
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/${method}`, {
     method: 'POST',
     body: request
   })

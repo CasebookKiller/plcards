@@ -9,4 +9,6 @@ import './mockEnv.ts';
 import 'primereact/resources/themes/lara-dark-cyan/theme.css';
 import './index.css';
 
+document.title = import.meta.env.VITE_APP_TITLE;
+
 ReactDOM.createRoot(document.getElementById('root')!).render(<Root/>);

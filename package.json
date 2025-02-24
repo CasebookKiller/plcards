@@ -1,9 +1,9 @@
 {
-  "name": "prime-reactjs-template-3",
+  "name": "plcards",
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://casebookkiller.github.io/prime-reactjs-template-3",
+  "homepage": "https://casebookkiller.github.io/plcards",
   "scripts": {
     "deploy": "gh-pages -d dist",
     "dev": "vite",
@@ -50,7 +50,7 @@
     "supabase": "^2.12.1",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.24.0",
-    "vite": "^6.1.0",
+    "vite": "^6.1.1",
     "vite-tsconfig-paths": "^5.1.4"
   }
 }
